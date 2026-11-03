@@ -147,8 +147,8 @@ internal abstract class JsRuntimeChalBaseJCP: JsChallengeProvider() {
     protected open fun iterScriptSources(): Sequence<Pair<ScriptSource, (scriptType: ScriptType) -> Script?>> = sequence {
         yieldAll(listOf(
             Pair(ScriptSource.CACHE, ::cachedSource),
-            Pair(ScriptSource.BUILTIN, ::builtinSource),
-            Pair(ScriptSource.WEB, ::webReleaseSource)
+            Pair(ScriptSource.BUILTIN, ::builtinSource)
+            // Fork: no downloaded solver scripts, only the bundled one.
         ))
     }
 

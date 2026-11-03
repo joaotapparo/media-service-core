@@ -7,5 +7,6 @@ internal object ConstantsService {
     private val mConstantsApi = RetrofitHelper.create(ConstantsApi::class.java)
 
     @JvmStatic
-    val constants: ConstantsResult? by lazy { RetrofitHelper.get(mConstantsApi.getConstants()) }
+    // Fork: no remote constants.json from upstream (it picks the OAuth client for Drive backup).
+    val constants: ConstantsResult? = null
 }
